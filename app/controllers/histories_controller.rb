@@ -15,6 +15,7 @@ class HistoriesController < ApplicationController
   # GET /histories/new
   def new
     @history = History.new
+    @pets = Pet.order(:name)
   end
 
   # GET /histories/1/edit
@@ -25,6 +26,9 @@ class HistoriesController < ApplicationController
   # POST /histories.json
   def create
     @history = History.new(history_params)
+    
+
+ 
 
     respond_to do |format|
       if @history.save

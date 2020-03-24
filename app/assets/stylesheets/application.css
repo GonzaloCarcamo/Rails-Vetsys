@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+ td{
+     font-size: 1.1em;
+
+ }

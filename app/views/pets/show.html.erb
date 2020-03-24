@@ -1,19 +1,57 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @pet.name %>
-</p>
+<h1>Ficha Paciente: <%= @pet.name%></h1>
 
-<p>
-  <strong>Race:</strong>
-  <%= @pet.race %>
-</p>
 
-<p>
-  <strong>Born:</strong>
-  <%= @pet.born %>
-</p>
 
-<%= link_to 'Edit', edit_pet_path(@pet) %> |
-<%= link_to 'Back', pets_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Peso Máximo</th>
+      <th>Altura Máxima</th>
+      <th>Peso Promedio</th>
+      <th>Altura Promedio</th>
+
+    </tr>
+
+  </thead>
+
+  <tbody>
+
+    <tr>
+      <td><%= @pet.histories.maximum(:weight) %></td>
+      <td><%= @pet.histories.maximum(:height) %></td>
+      <td><%= @pet.histories.average(:weight) %></td>
+      <td><%= @pet.histories.average(:height) %></td>
+
+    </tr>
+
+  </tbody>
+
+</table>
+
+<table>
+  <thead>
+    <tr>
+
+      <th>Fecha de visita</th>
+      <th>Peso</th>
+      <th>Altura</th>
+      <th>Notas</th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+    <% @pet.histories.each do |history| %>
+      <tr>
+
+        <td><%= history.created_at %></td>
+        <td><%= history.weight %> Kg</td>
+        <td><%= history.height %> cms</td>
+        <td><%= history.observation %></td>
+       
+      </tr>
+    <% end %>
+  </tbody>
+</table>

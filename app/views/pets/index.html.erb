@@ -1,15 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Pacientes</h1>
+<h1 class="text-center">Listado de Pacientes</h1>
 
-<table>
-  <thead>
+<table class="table">
+  <thead class="thead-dark">
     <tr>
-      <th>Nombre</th>
-      <th>Raza</th>
-      <th>Fecha de Nacimiento</th>
-      <th>Dueño</th>
-      <th>Contacto</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Raza</th>
+      <th scope="col">Fecha de Nacimiento</th>
+      <th scope="col">Dueño</th>
+      <th scope="col">Contacto</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,9 +22,9 @@
         <td><%= pet.born %></td>
         <td><%= pet.owner %></td>
         <td><%= pet.contact %></td>
-        <td><%= link_to 'Show', pet %></td>
-        <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
-        <td><%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'HISTORIAL', pet %></td>
+        <td><%= link_to 'EDITAR', edit_pet_path(pet) %></td>
+        <td><%= link_to 'ELIMINAR', pet, method: :delete, data: { confirm: 'Está seguro de la eliminación?' } %></td>
       </tr>
     <% end %>
   </tbody>
