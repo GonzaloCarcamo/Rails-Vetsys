@@ -1,16 +1,10 @@
+<div class="col-lg-6">
+
 <%= form_with(model: pet, local: true) do |form| %>
   <% if pet.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
-
-      <ul>
-      <% pet.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+      <h2>Faltan campos por llenar</h2>
   <% end %>
-
   <div class="form-group">
     <%= form.label :Nombre %>
     <%= form.text_field :name, class:'form-control' %>
@@ -37,6 +31,8 @@
   </div>
 
   <div class="actions form-group">
-    <%= form.submit class:'form-control btn btn-dark' %>
+    <%= form.submit class:'form-control btn btn-dark'%>
   </div>
 <% end %>
+
+</div>

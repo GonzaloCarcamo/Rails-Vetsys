@@ -1,11 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Ficha Paciente: <%= @pet.name%></h1>
+<h1 class="text-center">Ficha Paciente: <%= @pet.name%></h1>
+
+<br>
 
 
 
-<table>
-  <thead>
+<table class="table">
+  <thead class="thead-dark">
     <tr>
       <th>Peso Máximo</th>
       <th>Altura Máxima</th>
@@ -19,10 +21,10 @@
   <tbody>
 
     <tr>
-      <td><%= @pet.histories.maximum(:weight) %></td>
-      <td><%= @pet.histories.maximum(:height) %></td>
-      <td><%= @pet.histories.average(:weight) %></td>
-      <td><%= @pet.histories.average(:height) %></td>
+      <td><%= @pet.histories.maximum(:weight) %> Kg</td>
+      <td><%= @pet.histories.maximum(:height) %> cms</td>
+      <td><%= @pet.histories.average(:weight) %> Kg</td>
+      <td><%= @pet.histories.average(:height) %> cms</td>
 
     </tr>
 
@@ -30,8 +32,8 @@
 
 </table>
 
-<table>
-  <thead>
+<table class="table">
+  <thead class="thead-dark">
     <tr>
 
       <th>Fecha de visita</th>
@@ -46,11 +48,11 @@
     <% @pet.histories.each do |history| %>
       <tr>
 
-        <td><%= history.created_at %></td>
+        <td><%= localize history.created_at, format: "%d de %B de %Y" %></td>
         <td><%= history.weight %> Kg</td>
         <td><%= history.height %> cms</td>
         <td><%= history.observation %></td>
-       
+
       </tr>
     <% end %>
   </tbody>

@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2020_03_24_173027) do
   enable_extension "plpgsql"
 
   create_table "histories", force: :cascade do |t|
-    t.integer "weight"
-    t.integer "height"
+    t.float "weight"
+    t.float "height"
     t.string "observation"
     t.bigint "pet_id"
     t.datetime "created_at", null: false

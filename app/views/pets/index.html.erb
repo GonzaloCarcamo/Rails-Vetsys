@@ -1,7 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1 class="text-center">Listado de Pacientes</h1>
+<form class="form-inline my-2 my-lg-0">
+  <input class="form-control mr-sm-2" name="q" type="search" placeholder="Search" aria-label="Search">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
 
+<br>
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -15,21 +19,27 @@
   </thead>
 
   <tbody>
-    <% @pets.each do |pet| %>
-      <tr>
-        <td><%= pet.name %></td>
-        <td><%= pet.race %></td>
-        <td><%= pet.born %></td>
-        <td><%= pet.owner %></td>
-        <td><%= pet.contact %></td>
-        <td><%= link_to 'HISTORIAL', pet %></td>
-        <td><%= link_to 'EDITAR', edit_pet_path(pet) %></td>
-        <td><%= link_to 'ELIMINAR', pet, method: :delete, data: { confirm: 'Está seguro de la eliminación?' } %></td>
-      </tr>
-    <% end %>
+
+      <% @pets.each do |pet| %>
+
+        <tr>
+          <td><%= pet.name %></td>
+          <td><%= pet.race %></td>
+          <td><%= localize pet.born, format: "%d de %B de %Y" %></td>
+          <td><%= pet.owner %></td>
+          <td><%= pet.contact %></td>
+          <td><%= link_to 'HISTORIAL', pet %></td>
+          <td><%= link_to 'EDITAR', edit_pet_path(pet) %></td>
+          <td><%= link_to 'ELIMINAR', pet, method: :delete, data: { confirm: 'Está seguro de la eliminación?' } %></td>
+
+        </tr>
+
+          <% end %>
+
+
+
+
+
   </tbody>
+
 </table>
-
-<br>
-
-
